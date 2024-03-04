@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "599404833366",
+    "project_id": "fir-push-notify-31766",
+    "storage_bucket": "fir-push-notify-31766.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599404833366:android:d251fa8a56eaf52ed729f7",
+        "android_client_info": {
+          "package_name": "com.pushify"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrRyY6MisAW_xFbHQ-K4ZPfz2jFfTcYiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

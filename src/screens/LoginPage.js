@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Image, TouchableOpacity } from 'react-native';
+import onDisplayNotification from '../components/NotificationManager';
 import axios from 'axios';
 
 const LoginPage = ({ navigation }) => {
@@ -18,6 +19,7 @@ const LoginPage = ({ navigation }) => {
       console.log(res.data);
       if(res.data.status == 'ok'){
         navigation.navigate('Home',{userName: res.data.userName});
+        onDisplayNotification('Logged in successfully','User Logged-in successfully')
       }else{
         alert(res.data.data)
       }
@@ -28,12 +30,31 @@ const LoginPage = ({ navigation }) => {
   
 
   return (
-    <View className = "flex flex-col items-center justify-center object-cover h-full bg-gray-200">
-     <View className = "bg-white p-8 rounded-lg shadow-md w-80 ">
-        <TextInput placeholder="Email" value={email} onChangeText={setEmail}/>
-        <TextInput placeholder="Password" value={password} onChangeText={setPassword} secureTextEntry={true}  />
-        <Button title="Login" onPress={() => handleSubmit()} />
-      </View>
+    <View className='flex-1 items-center justify-center bg-white'>
+      <Image
+        source={require('../components/firebase.png')}
+        resizeMode="cover"
+      />
+      <TextInput
+        className='w-4/5 mt-4 p-3 border border-gray-400 rounded'
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+      />
+      <TextInput
+        className='w-4/5 mt-4 p-3 border border-gray-400 rounded'
+        placeholder="Password"
+        secureTextEntry={true}
+        value={password}
+        onChangeText={setPassword}
+      />
+      <TouchableOpacity
+        onPress={() => handleSubmit()}
+        className='w-4/5 mt-8 p-3 bg-red-500 rounded-lg items-center justify-center'
+      >
+        <Text className='text-white'>Login</Text>
+        
+      </TouchableOpacity>
     </View>
   );
 };
